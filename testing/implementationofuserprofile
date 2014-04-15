@@ -1,0 +1,2 @@
+1. add $conn = mysql_connect($host, $username, $password);	 to config file
+2. copy paste "TO BE INSERTED" into userprofile.php

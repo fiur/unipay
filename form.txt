@@ -1,0 +1,21 @@
+    <form action="register.php" method="post"> 
+					<div class="input-group input-group-lg">
+					  <span class="input-group-addon">Username</span>
+					  <input type="text" name="username" class="form-control" placeholder="">
+					</div>
+					<br>
+					<div class="input-group input-group-lg">
+					  <span class="input-group-addon">Mail</span>
+					  <input type="text" name="email" class="form-control" placeholder="">
+					</div>
+					<br>
+					<div class="input-group input-group-lg">
+					  <span class="input-group-addon">Password</span>
+					  <input type="password" name="password" class="form-control" placeholder="">
+					</div>
+					<br>
+					<div class="input-group input-group-lg">
+					  <span class="input-group-addon">UID</span>
+					  <input type="text" name="uid" class="form-control" placeholder="">
+					</div>
+	</form>
