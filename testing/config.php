@@ -12,7 +12,7 @@
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC); 
     header('Content-Type: text/html; charset=utf-8'); 
-    mysql_connect("188.226.164.238", "root", "stefan") or die(mysql_error());
+    mysql_connect("$host", "$username", "$password") or die(mysql_error());
 	$conn = mysql_connect($host, $username, $password);	
     mysql_select_db("unipay") or die(mysql_error()); 
     session_start(); 

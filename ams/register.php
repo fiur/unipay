@@ -77,6 +77,26 @@
             $result = $stmt->execute($query_params); 
         } 
         catch(PDOException $ex){ die("Failed to run query: " . $ex->getMessage()); } 
+        
+        $uid = '000000';
+        $cardno = $_POST['cardnumber'];
+        $type = 'Studentcard';
+        $username2 = $_POST['username'];
+        $tech = 'Mifare One';
+        
+                
+        
+            $query2 = "INSERT INTO `cards`(`uid`, `cardno`, `type`, `username`, `tech`) VALUES ('$uid','$cardno','$type','$username2', '$tech')";		
+	
+	//Run query	 
+	$retval = mysql_query($query2);
+	
+	if(! $retval )
+	{
+		die('error#1-4' . mysql_error());
+	}
+	
+        
         header("Location: maindash.php"); 
         die("Redirecting to maindash.php"); 
     } 
@@ -129,7 +149,7 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="http://188.226.164.238/"><i class="fa fa-dashboard fa-fw"></i>Frontpage</a>
+                        <a href="http://188.226.133.180/"><i class="fa fa-dashboard fa-fw"></i>Frontpage</a>
                     </li>
                 </ul>
                 <!-- /#side-menu -->
@@ -176,6 +196,17 @@
 		    <div class="input-group has-feedback">
 			  <span class="input-group-addon">Password</span>
 		      <input type="password" name="password" class="form-control">
+		      <span class="input-group-btn">
+		      </span>
+		    </div><!-- /input-group -->
+		  </div><!-- /.col-lg-6 -->
+		</div><!-- /.row -->
+		<br>
+		<div class="row">
+		  <div class="col-lg-6">
+		    <div class="input-group has-feedback">
+			  <span class="input-group-addon">Card number</span>
+		      <input type="text" name="cardnumber" class="form-control">
 		      <span class="input-group-btn">
 		      </span>
 		    </div><!-- /input-group -->

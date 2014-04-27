@@ -2,8 +2,8 @@
     require("config.php");
 	if(empty($_SESSION['user'])) 
     {
-        header("Location: http://188.226.164.238/logout.php");
-        die("Redirecting to http://188.226.164.238/logout.php"); 
+        header("Location: http://188.226.133.180/logout.php");
+        die("Redirecting to http://188.226.133.180/logout.php"); 
     }
 	$username = $_SESSION['username'];
 	$query = "SELECT * FROM users WHERE username = '$username'"; 
@@ -25,15 +25,27 @@ $info = mysql_fetch_array($result) or die(mysql_error());
 	$sql = "UPDATE users 
        SET balance =  balance + '$add'
        WHERE username = '$username'";
-	   
+	  
+      
+    
+        $sql2 = "INSERT INTO `transactions`(`username`, `paymentmethod`, `amount`, `vendorid`, `description`, `status`) VALUES ('$username','PayPal','$add','3','Money Added','Completed')";
+        
 	mysql_select_db('unipay');
+        if($add != 0){
 	$retval = mysql_query( $sql, $conn );
+        $retval2 = mysql_query( $sql2, $conn );
+       // mysql_close($conn);
+        
 	if(! $retval )
 	{
 	die('Could not update data: ' . mysql_error());
 	}
+        }
+        
 	
 	mysql_close($conn);
+	header("Location: addmoney.php");
+	die("Redirecting to addmoney.php"); 
 	}
 	
 	
@@ -90,7 +102,7 @@ $info = mysql_fetch_array($result) or die(mysql_error());
                         <li><a href="cards.php"><i class="fa fa-gear fa-fw"></i> Cards</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="http://188.226.164.238/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="http://188.226.133.180/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -169,8 +181,4 @@ $info = mysql_fetch_array($result) or die(mysql_error());
     <!-- SB Admin Scripts - Include with every page -->
     <script src="js/sb-admin.js"></script>
 
-    <!-- Page-Level Demo Scripts - Blank - Use for reference -->
-
-</body>
-
-</html>
+    <!-- Page-Level Demo Scripts - Blank - 

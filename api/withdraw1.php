@@ -1,6 +1,6 @@
 <?php
 	// -------------------------------------------------------------------------------
-	// This file authenticate the transaction with userinformation 
+	// This file withdraw money from one account to another
 	// -------------------------------------------------------------------------------
 	
 	// Connect to the database file is done in an external file

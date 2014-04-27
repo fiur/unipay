@@ -2,8 +2,8 @@
     require("config.php");
 	if(empty($_SESSION['user'])) 
     {
-        header("Location: http://188.226.164.238/logout.php");
-        die("Redirecting to http://188.226.164.238/logout.php"); 
+        header("Location: http://188.226.133.180/logout.php");
+        die("Redirecting to http://188.226.133.180/logout.php"); 
     }
 	$username = $_SESSION['username'];
 	$query = "SELECT * FROM users WHERE username = '$username'"; 
@@ -91,7 +91,7 @@ $info = mysql_fetch_array($result) or die(mysql_error());
                         <li><a href="cards.php"><i class="fa fa-gear fa-fw"></i> Cards</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="http://188.226.164.238/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="http://188.226.133.180/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

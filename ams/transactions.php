@@ -2,8 +2,8 @@
     require("config.php");
     if(empty($_SESSION['user'])) 
     {
-        header("Location: http://188.226.164.238/logout.php");
-        die("Redirecting to http://188.226.164.238/logout.php"); 
+        header("Location: http://188.226.133.180/logout.php");
+        die("Redirecting to http://188.226.133.180/logout.php"); 
     }
 ?>
 <!DOCTYPE html>
@@ -38,7 +38,6 @@
 	//Finds the number of transactions for this user
 	$translineresult = mysql_query("SELECT * FROM transactions WHERE username = '$balanceid' ");
 	$num_rows = mysql_num_rows($translineresult);
-	$transactioninfo = mysql_fetch_array( $translineresult );
 	
 	//Finds the colum names in the table transactions, ad puts it into an array
 	?>
@@ -67,7 +66,7 @@
                         <li><a href="cards.php"><i class="fa fa-gear fa-fw"></i> Cards</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="http://188.226.164.238/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="http://188.226.133.180/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -111,10 +110,10 @@
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
-									<th>Date of purchase</th>
+									<th>Time of transaction</th>
                                     <th>Vendor</th>
-									<th>Vendor</th>
-                                    <th>Amount withdrawed</th>
+									<th>Used</th>
+                                    <th>Amount</th>
                                     <th>Description</th>
 									<th>status</th>
                                 </tr>
@@ -122,13 +121,18 @@
                             <tbody>
 								
 					<?php
-					print "There is "."$num_rows transactions"."for this user";
+					print "There is "."$num_rows transactions"." for this user";
 					while ($row = mysql_fetch_array($translineresult)) {
 						print '<tr>';
 						print '<td>' . $row['date'] . '</td>';
 						print '<td>' . $row['vendorid'] . '</td>';
 						print '<td>' . $row['paymentmethod'] . '</td>';
+						if($row['amount']>0){
+						print '<td>' . '+'. $row['amount'] . '</td>';
+						}
+						else{
 						print '<td>' . $row['amount'] . '</td>';
+						}
 						print '<td>' . $row['description'] . '</td>';
 						print '<td>' . $row['status'] . '</td>';
 						print '</tr>';

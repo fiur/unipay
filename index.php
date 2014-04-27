@@ -99,15 +99,14 @@
     <!-- /Side Menu -->
 
     <!-- Full Page Image Header Area -->
-    <div id="top" class="header">
+    <div id="top" class="header" >
         <div class="vert-text">
-           	
-		    <h1>UniPay</h1>
-            <h3>
+		    <h1 class="text-danger">UniPay</h1>
+            <h3 class="text-danger">
                 <em>Make</em> Digital payment,
-                <em>easier</em> for everybody</h3>
-				
-	        <a href="/ams/register.php" class="btn btn-default btn-lg">Register</a>
+                <em>easier</em> for students
+			</h3>
+	        <a href="/ams/register.php" class="btn btn-default btn-lg">Create Account</a>
             <a href="#about" class="btn btn-default btn-lg">Find Out More</a>
 			<a data-toggle="modal" href="#login" class="btn btn-default btn-lg">Login to you account</a>
 
@@ -121,10 +120,12 @@
 						<form role="form" action="index.php" method="post">
  		 			<div class="modal-body">
 							<div class="input-group input-group-lg">
-								<span class="input-group-addon">Username</span>
-								<input type="text" name="username" value="<?php $_REQUEST['username']; ?>" class="form-control" id="username" placeholder="Enter username">
-
-								<span class="input-group-addon">Password</span>
+								<span class="input-group-addon">Username:</span>
+								<input type="text" name="username" value="<?php $_REQUEST['username']; ?>" class="form-control" id="username" placeholder="Enter username">	
+						 	</div>
+							<br>
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon">Password:</span>
 								<input type="password" class="form-control" id="password" name="password" value="<?php $_REQUEST['password']; ?>" placeholder="Enter Password">
 								
 						 	</div>

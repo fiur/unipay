@@ -2,8 +2,8 @@
     require("config.php");
     if(empty($_SESSION['user'])) 
     {
-        header("Location: http://188.226.164.238/logout.php");
-        die("Redirecting to http://188.226.164.238/logout.php"); 
+        header("Location: http://188.226.133.180/logout.php");
+        die("Redirecting to http://188.226.133.180/logout.php"); 
     }
 ?>
 <!DOCTYPE html>
@@ -64,7 +64,7 @@ $balanceid = $_SESSION['username'];
                         <li><a href="cards.php"><i class="fa fa-gear fa-fw"></i> Cards</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="http://188.226.164.238/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="http://188.226.133.180/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
